@@ -1,4 +1,5 @@
 import { supabase } from './client'
+import type { Session } from '@supabase/supabase-js'
 
 export interface SignUpCredentials {
   email: string
@@ -11,15 +12,6 @@ export interface SignInCredentials {
 }
 
 export const authService = {
-  async signUp({ email, password }: SignUpCredentials) {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    })
-
-    if (error) throw error
-    return data
-  },
 
   async signIn({ email, password }: SignInCredentials) {
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -53,8 +45,10 @@ export const authService = {
     if (error) throw error
     return session
   },
-
-  onAuthStateChange(callback: (event: string, session: any) => void) {
+  
+  onAuthStateChange(callback: (event: string, session: Session | null) => void) {
     return supabase.auth.onAuthStateChange(callback)
   },
+  
 }
+

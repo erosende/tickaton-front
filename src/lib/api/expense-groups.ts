@@ -7,12 +7,9 @@ import type {
 } from '@/types/api';
 
 export const expenseGroupsApi = {
-  async getAll(): Promise<ExpenseGroupResponse[]> {
-    const { data } = await apiClient.get<ExpenseGroupResponse[]>('/expense-groups');
-    return data;
-  },
 
   async getPaginated(filters?: ExpenseGroupFilters): Promise<PageExpenseGroupResponse> {
+    console.log('Fetching expense groups with filters:', filters);
     const { data } = await apiClient.get<PageExpenseGroupResponse>('/expense-groups/paginated', {
       params: filters,
     });
