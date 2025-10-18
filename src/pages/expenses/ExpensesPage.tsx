@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import DatePicker from '../../components/inputs/date-picker/DatePicker'
 import './ExpensesPage.css'
@@ -10,6 +11,7 @@ import type { PageExpenseGroupResponse, ExpenseGroupFilters } from '@/types/api'
 import toast from 'react-hot-toast'
 
 function ExpensesPage() {
+  const navigate = useNavigate()
   const [startDate, setStartDate] = useState<string>('')
   const [endDate, setEndDate] = useState<string>('')
   const [searchTerm, setSearchTerm] = useState<string>('')
@@ -71,8 +73,10 @@ function ExpensesPage() {
   }
 
   const handleCardClick = (id: number) => {
-    // TODO: Navigate to expense group detail page
-    console.log('Clicked expense group:', id)
+    const expenseGroup = expenseGroupsData?.content.find(group => group.id === id)
+    if (expenseGroup) {
+      navigate(`/expenses/${id}`, { state: { expenseGroup } })
+    }
   }
 
   return (
@@ -108,7 +112,7 @@ function ExpensesPage() {
               placeholder="Selecciona a data"
             />
             <button className="filter-button" onClick={handleFilter}>
-              Filtrar
+              Aplicar filtros
             </button>
           </div>
         </div>

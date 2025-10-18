@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast'
 import LoginPage from './pages/login/LoginPage'
 import HomePage from './pages/home/HomePage'
 import ExpensesPage from './pages/expenses/ExpensesPage'
+import ExpenseGroupDetailPage from './pages/expenses/ExpenseGroupDetailPage'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/expenses" element={<ExpensesPage />} />
+        <Route path="/expenses/:id" element={<ExpenseGroupDetailPage />} />
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>

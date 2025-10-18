@@ -5,7 +5,7 @@
 }
 
 .text-input-label {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-left: 6px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.87);
@@ -20,6 +20,7 @@
 }
 
 .text-input input[type="text"] {
+  max-height: 10px;
   width: 100%;
   padding: 0.6em 1em;
   font-size: 1em;
