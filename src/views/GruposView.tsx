@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import GrupoGastoCard from "../components/GrupoGastoCard";
 import { useGruposGasto } from "../hooks/useGrupoGasto";
 import type { GrupoGasto } from "../interfaces/GrupoGasto";

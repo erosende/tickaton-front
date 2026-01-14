@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { useEffect } from "react";
 import type { Gasto } from "../../interfaces/Gasto";
 import type { Persona } from "../../interfaces/Persona";
 import "./EditGastoForm.css";
@@ -39,13 +39,13 @@ const EditGastoForm = ({ idGrupoGasto, gasto, personas }: EditGastoFormProps) =>
     setFormData(prev => ({ ...prev, idPersona: parseInt(value) }));
   }
 
-  const isFormDataValid = (): boolean => {
-    return formData.concepto.trim() !== ''
-      && formData.importe > 0
-      && formData.porcentaje >= 0
-      && formData.porcentaje <= 100
-      && formData.idPersona > 0;
-  }
+  // const isFormDataValid = (): boolean => {
+  //   return formData.concepto.trim() !== ''
+  //     && formData.importe > 0
+  //     && formData.porcentaje >= 0
+  //     && formData.porcentaje <= 100
+  //     && formData.idPersona > 0;
+  // }
 
   return (
     <div>
