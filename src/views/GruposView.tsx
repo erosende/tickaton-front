@@ -5,7 +5,7 @@ import type { GrupoGasto } from "../interfaces/GrupoGasto";
 import { useNavigate } from "react-router-dom";
 import "./GruposView.css";
 import Modal from "../components/Modal";
-import NewGrupoGastoForm from "../components/form/NewGrupoGastoForm";
+import NewGrupoGastoForm from "../components/form/grupo-gasto/NewGrupoGastoForm";
 import { grupoGastoService } from "../services/grupoGastoService";
 
 const GruposView = () => {

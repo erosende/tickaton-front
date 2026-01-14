@@ -1,5 +1,5 @@
 import React from "react";
-import type { GrupoGasto } from "../../interfaces/GrupoGasto";
+import type { GrupoGasto } from "../../../interfaces/GrupoGasto";
 import "./NewGrupoGastoForm.css";
 
 interface NewGrupoGastoFormProps {
@@ -26,7 +26,7 @@ const NewGrupoGastoForm: React.FC<NewGrupoGastoFormProps> = ({ onSubmit, onCance
 	};
 
 	return (
-		<form className="grupo-gasto-form" onSubmit={handleSubmit}>
+		<form className="new-grupo-gasto-form" onSubmit={handleSubmit}>
 			<div>
 				<div className="form-group">
 					<label htmlFor="nombre">Nombre</label>

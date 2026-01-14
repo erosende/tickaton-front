@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import type { GrupoGasto } from "../../interfaces/GrupoGasto";
-import { grupoGastoService } from "../../services/grupoGastoService";
+import type { GrupoGasto } from "../../../interfaces/GrupoGasto";
+import { grupoGastoService } from "../../../services/grupoGastoService";
 import "./EditGrupoGastoForm.css";
 
 interface EditGrupoGastoFormProps {

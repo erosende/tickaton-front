@@ -1,14 +1,7 @@
-.grupo-gasto-form {
+.edit-gasto-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  text-align: left;
 }
 
 .form-group label {
@@ -18,7 +11,8 @@
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -33,7 +27,7 @@
   margin-top: 10px;
 }
 
-.btn-primary {
+.save-button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -42,11 +36,7 @@
   cursor: pointer;
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
+.save-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }

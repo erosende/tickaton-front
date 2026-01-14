@@ -4,11 +4,11 @@ import type { GrupoGasto } from "../interfaces/GrupoGasto";
 import { grupoGastoService } from "../services/grupoGastoService";
 import type { Gasto } from "../interfaces/Gasto";
 import { gastoService } from "../services/gastoService";
-import EditGrupoGastoForm from "../components/form/EditGrupoGastoForm";
+import EditGrupoGastoForm from "../components/form/grupo-gasto/EditGrupoGastoForm";
 import GastoItem from "../components/GastoItem";
 import { usePersonas } from "../hooks/usePersona";
 import "./DetalleGrupoView.css";
-import EditGastoForm from "../components/form/EditGastoForm";
+import EditGastoForm from "../components/form/gasto/EditGastoForm";
 import { useGastoMutations } from "../hooks/useGasto";
 
 
@@ -23,7 +23,7 @@ export default function DetalleGrupoView() {
 	const [selectedGasto, setSelectedGasto] = useState<Gasto | undefined>(undefined);
 	const newGastoRef = useRef<HTMLDivElement>(null);
 
-	const { createGasto, deleteGasto } = useGastoMutations();
+	const { createGasto, deleteGasto, updateGasto } = useGastoMutations();
 	const personas = usePersonas().data;
 
 	useEffect(() => {
@@ -96,6 +96,24 @@ export default function DetalleGrupoView() {
 		}
 	};
 
+	const handleUpdateGasto = async (updatedGasto: Gasto) => {
+		try {
+			console.log("Actualizando gasto:", updatedGasto);
+			console.log("idGrupo:", idGrupo);
+			const updatedGastoResponse = await updateGasto(parseInt(idGrupo!), updatedGasto.idGasto!, updatedGasto);
+			if (updatedGastoResponse) {
+				setGastos(prevGastos =>
+					prevGastos.map(gasto =>
+						gasto.idGasto === updatedGastoResponse.idGasto ? updatedGastoResponse : gasto
+					)
+				);
+				setSelectedGasto(updatedGastoResponse);
+			}
+		} catch (error) {
+			console.error("Error al actualizar el gasto:", error);
+		}
+	}
+
 	return (
 		<div>
 			<h2>Detalle del grupo de gasto</h2>
@@ -125,7 +143,7 @@ export default function DetalleGrupoView() {
 						))}
 					</div>
 					<div className="gastos-edit-container">
-						<EditGastoForm idGrupoGasto={parseInt(idGrupo!)} gasto={selectedGasto} personas={personas} />
+						<EditGastoForm idGrupoGasto={parseInt(idGrupo!)} gasto={selectedGasto} onSave={handleUpdateGasto} personas={personas} />
 					</div>
 				</div>
 			) : (

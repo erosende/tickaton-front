@@ -1,7 +1,14 @@
-.edit-gasto-form {
+.new-grupo-gasto-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
 }
 
 .form-group label {
@@ -11,8 +18,7 @@
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select {
+.form-group textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
