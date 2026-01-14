@@ -1,0 +1,39 @@
+.grupo-gasto {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #1a1a1a;
+    min-width: 250px;
+    max-width: 300px;
+    max-height: fit-content;
+    transition: border-color 0.25s;
+    text-align: left;
+}
+
+.grupo-gasto label {
+    color: #ffffff;
+    margin: 5px;
+}
+
+.grupo-gasto-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.grupo-gasto-dates {
+    display: flex;
+    flex-direction: row;
+}
+
+.grupo-gasto-date {
+    font-size: 0.7rem;
+    color: #a3a3a3;
+}
+
+.grupo-gasto:hover {
+    cursor: pointer;
+    border-color: #646cff;
+    transition: background-color 0.2s, border-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
