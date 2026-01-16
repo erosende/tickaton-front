@@ -49,3 +49,16 @@ export interface GrupoGastoFilters {
   fechaFinHasta?: string; // formato: YYYY-MM-DD
   pageable: Pageable;
 }
+
+export interface GrupoGastoStats {
+  totalPaid: number;
+  totalSplittable: number;
+  statsByPersona: PersonaStats[];
+}
+
+export interface PersonaStats {
+  idPersona: number;
+  totalPaid: number;
+  totalSplittable: number;
+  amountOwed: number;
+}

@@ -1,5 +1,5 @@
 import apiClient from './api';
-import type { GrupoGasto, PageGrupoGasto, GrupoGastoFilters } from '../interfaces/GrupoGasto';
+import type { GrupoGasto, PageGrupoGasto, GrupoGastoFilters, GrupoGastoStats } from '../interfaces/GrupoGasto';
 
 const GRUPO_GASTO_BASE_URL = '/api/grupos-gasto';
 
@@ -44,6 +44,14 @@ export const grupoGastoService = {
    */
   getById: async (id: number): Promise<GrupoGasto> => {
     const response = await apiClient.get<GrupoGasto>(`${GRUPO_GASTO_BASE_URL}/${id}`);
+    return response.data;
+  },
+
+  /**
+   * Obtiene estadísticas de un grupo de gasto por su ID
+   */
+  getStats: async (id: number): Promise<GrupoGastoStats> => {
+    const response = await apiClient.get<GrupoGastoStats>(`${GRUPO_GASTO_BASE_URL}/${id}/stats`);
     return response.data;
   },
 

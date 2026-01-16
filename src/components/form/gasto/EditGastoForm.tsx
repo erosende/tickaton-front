@@ -16,7 +16,7 @@ const EditGastoForm = ({ idGrupoGasto, gasto, onSave, personas }: EditGastoFormP
     idGasto: gasto?.idGasto,
     concepto: gasto?.concepto || '',
     importe: gasto?.importe || 0,
-    porcentaje: gasto?.porcentaje || 50,
+    porcentaje: gasto?.porcentaje || 100,
     idGrupoGasto: idGrupoGasto,
     idPersona: gasto?.idPersona || personas[0].idPersona!,
   });
@@ -28,7 +28,7 @@ const EditGastoForm = ({ idGrupoGasto, gasto, onSave, personas }: EditGastoFormP
       idGasto: gasto?.idGasto,
       concepto: gasto?.concepto || '',
       importe: gasto?.importe || 0,
-      porcentaje: gasto?.porcentaje || 50,
+      porcentaje: gasto?.porcentaje || 100,
       idGrupoGasto: idGrupoGasto,
       idPersona: gasto?.idPersona || personas[0].idPersona!,
     });

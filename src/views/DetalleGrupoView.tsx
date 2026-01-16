@@ -10,11 +10,15 @@ import { usePersonas } from "../hooks/usePersona";
 import "./DetalleGrupoView.css";
 import EditGastoForm from "../components/form/gasto/EditGastoForm";
 import { useGastoMutations } from "../hooks/useGasto";
+import Modal from "../components/Modal";
+import GrupoGastoStats from "../components/GrupoGastoStats";
 
 
 export default function DetalleGrupoView() {
 
 	const navigate = useNavigate();
+
+	const [isStatsModalOpen, setIsStatsModalOpen] = useState(false);
 
 	const { idGrupo } = useParams<{ idGrupo: string }>();
 	const [grupoGasto, setGrupoGasto] = useState<GrupoGasto | undefined>(undefined);
@@ -114,9 +118,16 @@ export default function DetalleGrupoView() {
 		}
 	}
 
+	const handleCloseStatsModal = () => {
+		setIsStatsModalOpen(false);
+	};
+
 	return (
 		<div>
-			<h2>Detalle del grupo de gasto</h2>
+			<div className="detalle-grupo-header">
+				<h2>Detalle del grupo de gasto</h2>
+				<button className="open-stats-button" onClick={() => setIsStatsModalOpen(true)}>Ver estadísticas</button>
+			</div>
 
 			{grupoGasto ? (<EditGrupoGastoForm grupoGasto={grupoGasto} />) : (<p>Cargando grupo de gasto...</p>)}
 			<div className="gastos-header">
@@ -149,6 +160,15 @@ export default function DetalleGrupoView() {
 			) : (
 				<p>No hay gastos asociados a este grupo de gasto.</p>
 			)}
+
+			<Modal
+				isOpen={isStatsModalOpen}
+				onClose={handleCloseStatsModal}
+				title={`Estadísticas del grupo: ${grupoGasto?.nombre}`}
+			>
+				<GrupoGastoStats grupoId={parseInt(idGrupo!)} isModalOpen={isStatsModalOpen} personas={personas} />
+			</Modal>
+			
 		</div>
 	);
 

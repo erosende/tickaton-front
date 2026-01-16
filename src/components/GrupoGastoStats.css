@@ -1,0 +1,65 @@
+.global-stats-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: -15px;
+}
+
+.global-stats-container {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.persona-stats-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.persona-stats-container {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.persona-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-title {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.stat-value {
+  margin-left: 2;
+  margin-top: -2px;
+  font-size: 14px;
+}
+
+.person {
+  font-size: 18px;
+}
+
+.debtor-position.owes {
+  color:rgb(202, 70, 70)
+}
+
+.debtor-position.is-owed {
+  color: rgb(85, 204, 61);
+}

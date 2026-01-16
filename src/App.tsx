@@ -8,14 +8,14 @@ import DetalleGrupoView from './views/DetalleGrupoView'
 function App() {
 
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <Routes>
           <Route path='/' element={<GruposView />} />
           <Route path='/grupo/:idGrupo' element={<DetalleGrupoView />} />
         </Routes>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   )
 }
 
