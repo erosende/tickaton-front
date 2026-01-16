@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useGrupoGastoStats } from "../hooks/useGrupoGasto";
 import type { Persona } from "../interfaces/Persona";
 import "./GrupoGastoStats.css";
-import type { PersonaStats } from "../interfaces/GrupoGasto";
 
 const GrupoGastoStats: React.FC<{ grupoId: number, isModalOpen: boolean, personas: Persona[] }> = ({ grupoId, isModalOpen, personas }) => {
 
