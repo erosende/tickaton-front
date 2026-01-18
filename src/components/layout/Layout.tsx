@@ -27,9 +27,6 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
 
-      <footer className="layout-footer">
-        <p>Desarrollado por Edgar Rosende Gómez</p>
-      </footer>
     </div>
   );
 };

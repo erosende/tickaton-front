@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GrupoGastoCard from "../components/GrupoGastoCard";
+import GrupoGastoCard from "../components/grupo-gasto/GrupoGastoCard";
 import { useGruposGasto } from "../hooks/useGrupoGasto";
 import type { GrupoGasto } from "../interfaces/GrupoGasto";
 import { useNavigate } from "react-router-dom";

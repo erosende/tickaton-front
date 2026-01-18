@@ -5,13 +5,13 @@ import { grupoGastoService } from "../services/grupoGastoService";
 import type { Gasto } from "../interfaces/Gasto";
 import { gastoService } from "../services/gastoService";
 import EditGrupoGastoForm from "../components/form/grupo-gasto/EditGrupoGastoForm";
-import GastoItem from "../components/GastoItem";
+import GastoItem from "../components/gasto/GastoItem";
 import { usePersonas } from "../hooks/usePersona";
 import "./DetalleGrupoView.css";
 import EditGastoForm from "../components/form/gasto/EditGastoForm";
 import { useGastoMutations } from "../hooks/useGasto";
 import Modal from "../components/Modal";
-import GrupoGastoStats from "../components/GrupoGastoStats";
+import GrupoGastoStats from "../components/grupo-gasto/GrupoGastoStats";
 
 
 export default function DetalleGrupoView() {

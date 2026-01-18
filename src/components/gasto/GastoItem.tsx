@@ -1,5 +1,5 @@
-import type { Gasto } from "../interfaces/Gasto";
-import type { Persona } from "../interfaces/Persona";
+import type { Gasto } from "../../interfaces/Gasto";
+import type { Persona } from "../../interfaces/Persona";
 import "./GastoItem.css";
 import { forwardRef } from "react";
 
