@@ -4,14 +4,18 @@ import "./GrupoGastoCard.css";
 interface GrupoGastoProps {
   grupoGasto: GrupoGasto;
   setSelectedGrupo: (grupo: GrupoGasto) => void;
+  onDelete?: () => void;
 }
 
-const handleDeleteGrupoGasto = (e: React.MouseEvent) => {
-  e.stopPropagation();
-  alert("Eliminación no implementada")
-}
-
-const GrupoGastoCard = ({ grupoGasto, setSelectedGrupo }: GrupoGastoProps) => {
+const GrupoGastoCard = ({ grupoGasto, setSelectedGrupo, onDelete }: GrupoGastoProps) => {
+  
+  const handleDeleteGrupoGasto = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onDelete) {
+      onDelete();
+    }
+  };
+  
   return (
     <div className="grupo-gasto" onClick={() => setSelectedGrupo(grupoGasto)}>
       <div className="grupo-gasto-info">

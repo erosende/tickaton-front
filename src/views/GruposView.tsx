@@ -12,6 +12,7 @@ const GruposView = () => {
 
 	const navigate = useNavigate();
 	const createGrupoGasto = grupoGastoService.create;
+	const deleteGrupoGasto = grupoGastoService.delete;
 
 	const [filters, setFilters] = useState({
 		nombre: undefined,
@@ -66,6 +67,13 @@ const GruposView = () => {
 		setIsNewGrupoModalOpen(false);
 	}
 
+	const handleDeleteGrupo = async (id: number) => {
+		if (confirm("¿Estás seguro de que deseas eliminar este grupo de gasto?")) {
+			await deleteGrupoGasto(id);
+			grupos.refetch();
+		}
+	}
+
 	useEffect(() => {
 		if (selectedGrupo?.idGrupoGasto) {
 			navigate(`/grupo/${encodeURIComponent(selectedGrupo.idGrupoGasto)}`, { state: { grupoGasto: selectedGrupo } });
@@ -82,7 +90,7 @@ const GruposView = () => {
 
 			<div className="grupos-list">
 				{grupos.data?.content.map((grupo) => (
-					<GrupoGastoCard key={grupo.idGrupoGasto} grupoGasto={grupo} setSelectedGrupo={setSelectedGrupo} />
+					<GrupoGastoCard key={grupo.idGrupoGasto} grupoGasto={grupo} setSelectedGrupo={setSelectedGrupo} onDelete={grupo.idGrupoGasto ? () => handleDeleteGrupo(grupo.idGrupoGasto!) : undefined} />
 				))}
 			</div>
 
