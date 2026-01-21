@@ -75,7 +75,7 @@ export default function DetalleGrupoView() {
 			const newGasto = await createGasto(parseInt(idGrupo!), {
 				concepto: "Nuevo Gasto",
 				importe: 0,
-				porcentaje: 50,
+				porcentaje: 100,
 				idGrupoGasto: parseInt(idGrupo!),
 				idPersona: personas[0]?.idPersona || 0,
 			});
